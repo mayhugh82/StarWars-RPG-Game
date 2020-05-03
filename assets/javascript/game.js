@@ -41,8 +41,11 @@ $(document).ready(function(){
     var combatants = [];
     //Will be populated when the player chooses an opponent.
     var currDefender;
+    //Will keep track of turns during combat. Used for calculating player damage
+
     //FUNCTIONS
     //=========================================================================================================
+
     //This function will render a character card to the page.
     //The character rendered and the area they are rendered to.
     var renderOne = function(character, renderArea, charStatus) {
@@ -125,7 +128,7 @@ $(document).ready(function(){
     //Render all characters to the page when the game starts.
     renderCharacters(characters, "#characters-section");
 
-    // On click even for selection our character.
+    // On click event for selection our character.
     $(document).on("click", ".character", function() {
         //Saving the clicked character's name.
        var name = $(this).attr("data-name");
@@ -140,6 +143,7 @@ $(document).ready(function(){
                 combatants.push(characters[key]);
                 }
             }
+
             console.log(combatants);
             //Hide the character select div.
             $("#characters-selection").hide();
@@ -148,5 +152,17 @@ $(document).ready(function(){
             renderCharacters(currSelectedCharacter, "#selected-character");
             renderCharacters(combatants, "#availabe-to-attack-section");
         }
-    })
+    });
+
+    //When you click the attack button, run the following game logic...
+    $("#attack-button").on("click", function() {
+
+        if ($("#defender").children().lenght !== 0) {
+
+            //Render defender's health by your attack value.
+            currDefender.health = -= (currSelectedCharacter.attack * turnCounter);
+        }
+        turnCounter++;
+
+    });
 });
