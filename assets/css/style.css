@@ -27,3 +27,28 @@ body {
   font-family: "Xena";
   src: url("../fonts/Xena.ttf");
 }
+
+img {
+    height: 100px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.character {
+    display: inline-block;
+    border-style: solid;
+    border-color: red;
+    border-width: 3px;;
+    cursor: pointer;
+    background-color: white;
+}
+
+.character-image {
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.character-name { text-align: center;}
+.character-health { text-align: center;}
