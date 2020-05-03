@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/reset.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
 
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Star Wars RPG</title>
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Xena RPG</title>
+  </head>
+  <body>
+    <div class="main-section-title">Xena RPG Game!</div>
+    <div id="main-game-section">
+
+      <!-- Where the characters are initially available to be selected. -->
+      <div id="characters-section">
+        <div class="section-title">Select Your Character</div>
+      </div>
+
+      <!-- Section for our selected character -->
+      <div id="selected-character-section">
+        <div class="section-title">Your Character</div>
+
+        <!-- Where our selected character will appear -->
+        <div id="selected-character"></div>
+
+      <div id="available-to-attack-section">
+          <div class="section-title">Enemies Available to Attack</div>
+      </div>
+
+      <div class="section-title">Fight Section</div>
+      <div id="fight-section">
+      <button id="attack-button">Attack</button>
+      </div>
+
+      <div id="action">
+          <div class="character-section">
+              <div class="section-title">Defender</div>
+              <!-- Where our defender will appear. -->
+              <div id="defender"></div>
+         </div>
+      </div>
+      <!-- Area for game messages. -->
+    </div>
+    <div id="game-message"></div>
+
     <script src="assets/javascript/game.js"></script>
-</body>
+  </body>
 </html>
