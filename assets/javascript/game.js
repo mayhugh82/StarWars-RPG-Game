@@ -34,6 +34,9 @@ $(document).ready(function(){
         enemyAttackBack: 15,
       }
     };
+
+    var currSelectedCharacter;
+    var combatants = [];
     //FUNCTIONS
     //=========================================================================================================
     //This function will render a character card to the page.
@@ -56,6 +59,7 @@ $(document).ready(function(){
                     renderOne(charObj[key], areaRender);
                 }
             }
+            
         }
 
     }
@@ -69,5 +73,22 @@ $(document).ready(function(){
         //Saving the clicked character's name.
        var name = $(this).attr("data-name");
        console.log(name);
+
+        //If a player character has not yet been chosen...
+        if(!currSelectedCharacter) {
+            // We then loop through the remaining characters and push them to the combatants area.
+            for (var key in characters) {
+                if (key !== name) {
+                combatants.push(characters[key]);
+                }
+            }
+            console.log(combatants);
+            //Hide the character select div.
+            $("#characters-selection").hide();
+
+            //Then reder our selected character and our combatants.
+            renderCharacters(currSelectedCharacter, "#selected-character");
+            renderCharacters(combatants, "#availabe-to-attack-section");
+        }
     })
 });
