@@ -4,28 +4,28 @@ $(document).ready(function(){
         name: "Xena",
         health: 100,
         attack: 14,
-        imageUrl: "..assets/images/Xena.jpg",
+        imageUrl: "assets/images/Xena.jpg",
         enemyAttackBack: 15,
       },
       Gabrielle: {
         name: "Gabrielle",
         health: 120,
         attack: 8,
-        imageUrl: "..assets/images/Gabrielle.jpg",
+        imageUrl: "assets/images/Gabrielle.jpg",
         enemyAttackBack: 15,
       },
       Callisto: {
         name: "Callisto",
         health: 150,
         attack: 8,
-        imageUrl: "..assets/images/callisto.jpeg",
+        imageUrl: "assets/images/callisto.jpeg",
         enemyAttackBack: 15,
       },
       Ares: {
         name: "Ares",
         health: 180,
         attack: 7,
-        imageUrl: "..assets/images/ares.jpg",
+        imageUrl: "assets/images/ares.jpg",
         enemyAttackBack: 15,
       }
     };
@@ -36,12 +36,15 @@ $(document).ready(function(){
         var charDiv = $("<div class='character' data-name='" + character.name + "'>");
         var charName = $("<div class='character-name'>").text(character.name);
         var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageUrl);
+        var charHealth = $("<div class='character-health'>").text(character.health);
+        charDiv.append(charName).append(charImage).append(charHealth);
+        $(renderArea).append(charDiv);
     }
 
     //This function handles the rendering of the characters based on which area they are to be rendered in.
     var renderCharacters = function(charObj, areaRender) {
-        if (arearender === "#characters-section") {
-            $(areadrender).empty();
+        if (areaRender === "#characters-section") {
+            $(areaRender).empty();
             for (var key in charObj) {
                 if (charObj.hasOwnProperty(key)) {
                     renderOne(charObj[key], areaRender);
@@ -50,4 +53,8 @@ $(document).ready(function(){
         }
 
     }
+
+
+    //Render all characters to the page when the game starts.
+    renderCharacters(characters, "#characters-section");
 });
