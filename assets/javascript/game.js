@@ -106,11 +106,11 @@ $(document).ready(function(){
                 if($("#defender").children().lenght === 0) {
                     renderCharacters(name, "#defender");
                     $(this).hide();
-                }
-            });
-        }
+             }
+        });
+    }
 
-    //"defender" is the dive where the active opponent appears.
+    //"defender" is the div where the active opponent appears.
     //If true, render the selected enemy in this location.
     if (areaRender === "#defender") {
         $(areaRender).empty();
@@ -119,6 +119,17 @@ $(document).ready(function(){
                 renderOne(combatants[i], areaRender, "defender");
             }
         }
+    }
+
+    //Re-render defender when attacked.
+    if (areaRender === "playerDamage"){
+        $("#defender").empty();
+        renderOne(charObj, "#defender", "defender");
+    }
+
+    if (areaRender === "enemyDamage") {
+        $("#selected-character").empty();
+        renderOne(charObj, "#selected-character");
     }
  };
 
@@ -161,8 +172,20 @@ $(document).ready(function(){
 
             //Render defender's health by your attack value.
             currDefender.health = -= (currSelectedCharacter.attack * turnCounter);
+
+            //If the enemy still has health...
+            of (currDefender.health > 0) {
+
+                //Render the enemy's updated character card.
+                renderCharacters(currDefender, "playDamage");
+
+                // Reduce your health by the opponent's attack value.
+                currSelectedCharacter.health -= currDefender.enemyAttackBack;
+
+                // Render the player's updated character card.
+                renderCharacters(currSelectedCharacter, "enemyDamage");
+            }
         }
         turnCounter++;
-
     });
 });
