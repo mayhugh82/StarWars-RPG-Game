@@ -41,13 +41,18 @@ $(document).ready(function(){
     //=========================================================================================================
     //This function will render a character card to the page.
     //The character rendered and the area they are rendered to.
-    var renderOne = function(character, renderArea) {
+    var renderOne = function(character, renderArea, charStatus) {
         var charDiv = $("<div class='character' data-name='" + character.name + "'>");
         var charName = $("<div class='character-name'>").text(character.name);
         var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageUrl);
         var charHealth = $("<div class='character-health'>").text(character.health);
         charDiv.append(charName).append(charImage).append(charHealth);
         $(renderArea).append(charDiv);
+
+        //If the character is an enemy or defender (the active opponent), add the appropriate class
+        if (charStatus === "enemy") {
+            $(charDiv).addClass("enemy");
+        }
     }
 
     //This function handles the rendering of the characters based on which area they are to be rendered in.
@@ -60,7 +65,7 @@ $(document).ready(function(){
             // Loop through the characters object and cal the renderOne function on each character to render their card.
             for (var key in charObj) {
                 if (charObj.hasOwnProperty(key)) {
-                    renderOne(charObj[key], areaRender);
+                    renderOne(charObj[key], areaRender, "");
                 }
             }
 
@@ -68,7 +73,7 @@ $(document).ready(function(){
         // "selected-character" is the div where our selected character appears.
         // If true, render the selected played character to this area.
         if (areaRender === "#selected-character") {
-            renderOne(charObj, areaRender);
+            renderOne(charObj, areaRender, "");
         }
 
         // "available-to-attack" is the div where our "inactive" opponents reside
@@ -77,8 +82,20 @@ $(document).ready(function(){
 
             // Loop throught he combatants array and call the renderOne function to each character
             for(var i = 0; i < charObj.length; i++) {
-                renderOne(charObj[i], areaRender);
+                renderOne(charObj[i], areaRender, "");
             }
+
+            //Creates an on click even for each enemy.
+            $(document).on("click", ".enemy", function() {
+                renderOne(charObj[i], areaRender, "enemy");
+                var name = ($(this).attr("data-name"));
+
+                // If there is no defender, the clicked enemy will become
+                if($("#defender").children().lenght === 0) {
+                    renderCharacters(name, "#defender");
+                    $(this).hide();
+                }
+            });
         }
     }
 
@@ -90,8 +107,7 @@ $(document).ready(function(){
     $(document).on("click", ".character", function() {
         //Saving the clicked character's name.
        var name = $(this).attr("data-name");
-       console.log(name);
-
+       
         //If a player character has not yet been chosen...
         if(!currSelectedCharacter) {
             // We populate currSelectedCharacter with the selected character's info.
