@@ -35,8 +35,12 @@ $(document).ready(function(){
       }
     };
 
+    //Will be populated when the player seelcts the character.
     var currSelectedCharacter;
+    //Populated with all the characters the player didn't select.
     var combatants = [];
+    //Will be populated when the player chooses an opponent.
+    var currDefender;
     //FUNCTIONS
     //=========================================================================================================
     //This function will render a character card to the page.
@@ -53,7 +57,12 @@ $(document).ready(function(){
         if (charStatus === "enemy") {
             $(charDiv).addClass("enemy");
         }
-    }
+        else if (charStatus === "defender") {
+            // Populate currDefender with the selected opponent's information.
+            currDefender = character;
+            $(charDiv).addClass("target-enemy");
+        }
+    };
 
     //This function handles the rendering of the characters based on which area they are to be rendered in.
     var renderCharacters = function(charObj, areaRender) {
@@ -97,7 +106,20 @@ $(document).ready(function(){
                 }
             });
         }
+
+    //"defender" is the dive where the active opponent appears.
+    //If true, render the selected enemy in this location.
+    if (areaRender === "#defender") {
+        $(areaRender).empty();
+        for (var i = 0; i < combatants.length; i++) {
+            if(compatants[i].name === charObj) {
+                renderOne(combatants[i], areaRender, "defender");
+            }
+        }
     }
+ };
+
+ //===============================================================================================================
 
 
     //Render all characters to the page when the game starts.
