@@ -42,6 +42,10 @@ $(document).ready(function(){
     //Will be populated when the player chooses an opponent.
     var currDefender;
     //Will keep track of turns during combat. Used for calculating player damage
+    var turnCounter = 1;
+    //Tracks number of defeated opponents.
+    var killCount = 0;
+
 
     //FUNCTIONS
     //=========================================================================================================
@@ -64,6 +68,19 @@ $(document).ready(function(){
             // Populate currDefender with the selected opponent's information.
             currDefender = character;
             $(charDiv).addClass("target-enemy");
+        }
+    };
+
+    //Functions to handle rendering game messages.
+    var renderMessage = function(message) {
+        //Builds the message and appends it to the page.
+        var gameMessageSet = $("#game-message");
+        var newMessage = $("<div>").text(message);
+        gameMessageSet.append(newMessage);
+
+        //If we get this specific message passed in, clear the message area.
+        if (message === "clearMessage") {
+            gameMessageSet.text("");
         }
     };
 
@@ -196,6 +213,12 @@ $(document).ready(function(){
         else {
             // Remove your opponent's character card.
             renderCharacters(currDefender, "enemyDefeated");
+            //Increment your kill count.
+            killCount++;
+            //If you have killed all of your opponents you win.
+            if (killCount >= 3) {
+
+            }
         }
         turnCounter++;
     });
