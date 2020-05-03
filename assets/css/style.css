@@ -106,6 +106,12 @@ img {
 
 #restart-button {
   visibility: hidden;
+  margin-left: 70px;
+  background-color: red;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border-color: black;
+  font-family:"Xena", Arial, Helvetica, sans-serif; ;
  }
 
 #turn-counter {
@@ -114,8 +120,11 @@ img {
 
 #attack-button {
   margin-left: 70px;
-  padding: 10px;
   background-color: red;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border-color: black;
+  font-family:"Xena", Arial, Helvetica, sans-serif; ;
 }
 
 
