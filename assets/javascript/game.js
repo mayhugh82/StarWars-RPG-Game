@@ -127,9 +127,15 @@ $(document).ready(function(){
         renderOne(charObj, "#defender", "defender");
     }
 
+    // Re-render player character when attacked.
     if (areaRender === "enemyDamage") {
         $("#selected-character").empty();
-        renderOne(charObj, "#selected-character");
+        renderOne(charObj, "#selected-character", "");
+    }
+
+    //Remove defeated enemy.
+    if (areaRender === "enemyDefeated") {
+        $("#defender").empty();
     }
  };
 
@@ -185,6 +191,11 @@ $(document).ready(function(){
                 // Render the player's updated character card.
                 renderCharacters(currSelectedCharacter, "enemyDamage");
             }
+        }
+        // Of the enemy has less than zero health they are defeated.
+        else {
+            // Remove your opponent's character card.
+            renderCharacters(currDefender, "enemyDefeated");
         }
         turnCounter++;
     });
