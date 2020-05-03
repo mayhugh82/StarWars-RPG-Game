@@ -1,4 +1,9 @@
 $(document).ready(function(){
+
+    //GLOBAL VARIABLES
+    //===========================================================================================================
+
+    //Creating an object to hold our characters.
     var characters = {
       Xena: {
         name: "Xena",
@@ -29,7 +34,8 @@ $(document).ready(function(){
         enemyAttackBack: 15,
       }
     };
-    console.log(characters);
+    //FUNCTIONS
+    //=========================================================================================================
     //This function will render a character card to the page.
     //The character rendered and the area they are rendered to.
     var renderOne = function(character, renderArea) {
@@ -57,4 +63,11 @@ $(document).ready(function(){
 
     //Render all characters to the page when the game starts.
     renderCharacters(characters, "#characters-section");
+
+    // On click even for selection our character.
+    $(document).on("click", ".character", function() {
+        //Saving the clicked character's name.
+       var name = $(this).attr("data-name");
+       console.log(name);
+    })
 });
