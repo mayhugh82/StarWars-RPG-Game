@@ -32,13 +32,19 @@ $(document).ready(function(){
     console.log(characters);
     //This function will render a character card to the page.
     //The character rendered and the area they are rendered to.
+    var renderOne = function(character, renderArea) {
+        var charDiv = $("<div class='character' data-name='" + character.name + "'>");
+        var charName = $("<div class='character-name'>").text(character.name);
+        var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageUrl);
+    }
+
     //This function handles the rendering of the characters based on which area they are to be rendered in.
     var renderCharacters = function(charObj, areaRender) {
         if (arearender === "#characters-section") {
             $(areadrender).empty();
             for (var key in charObj) {
                 if (charObj.hasOwnProperty(key)) {
-                    CanvasRenderingContext2D(charObj[key], areaRender);
+                    renderOne(charObj[key], areaRender);
                 }
             }
         }
