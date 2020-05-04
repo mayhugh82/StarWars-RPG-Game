@@ -31,7 +31,7 @@ The opponent character will instantly counter the attack. When that happens, you
 
 ### Attached to Portfolio
 
-This link was attacht to the Trivia Image on my Portfolio - [ResponsivePortfolio] (https://mayhugh82.github.io/Responsive-Portfolio/portfolio.html)
+This link was attacht to the RPG Image on my Portfolio - [ResponsivePortfolio] (https://mayhugh82.github.io/Responsive-Portfolio/portfolio.html)
 
 ## Authors
 
