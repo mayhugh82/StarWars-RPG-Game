@@ -35,4 +35,4 @@ This link was attacht to the Trivia Image on my Portfolio - [ResponsivePortfolio
 
 ## Authors
 
-* **Diana Mayhugh** - *Initial work* - [XenaRPGGame](https://mayhugh82.github.io/TriviaGame/)
+* **Diana Mayhugh** - *Initial work* - [XenaRPGGame](https://mayhugh82.github.io/Xena-RPG-Game/)
