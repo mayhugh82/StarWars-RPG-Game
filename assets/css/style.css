@@ -105,13 +105,22 @@ img {
 }
 
 #restart-button {
-  visibility: hidden;
   margin-left: 70px;
   background-color: red;
   border-radius: 5px;
   padding: 5px 10px;
   border-color: black;
-  font-family:"Xena", Arial, Helvetica, sans-serif; ;
+  font-family:"Xena", Arial, Helvetica, sans-serif;
+  visibility: hidden; 
+ }
+
+ button {
+  margin-left: 70px;
+  background-color: red;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border-color: black;
+  font-family:"Xena", Arial, Helvetica, sans-serif;
  }
 
 #turn-counter {
