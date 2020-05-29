@@ -31,8 +31,8 @@ The opponent character will instantly counter the attack. When that happens, you
 
 ### Attached to Portfolio
 
-This link was attacht to the RPG Image on my Portfolio - [ResponsivePortfolio] (https://mayhugh82.github.io/Responsive-Portfolio/portfolio.html)
+This link was attached to the RPG Image on my Portfolio - [DianaPortfolio](https://mayhugh82.github.io/DianaPortfolio/)
 
 ## Authors
 
-* **Diana Mayhugh** - *Initial work* - [XenaRPGGame](https://mayhugh82.github.io/Xena-RPG-Game/)
+* **Diana Mayhugh** - [XenaRPGGame](https://mayhugh82.github.io/Xena-RPG-Game/)
